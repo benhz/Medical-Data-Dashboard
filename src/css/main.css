@@ -171,6 +171,7 @@ body::before {
     grid-template-columns: 280px 1fr 320px;
     gap: 20px;
     position: relative;
+    align-items: start;
 }
 
 /* ========== 左侧面板 ========== */
@@ -178,6 +179,23 @@ body::before {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    height: 100%;
+}
+
+/* ========== 中间面板 ========== */
+.center-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+}
+
+/* ========== 右侧面板 ========== */
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
 }
 
 /* 统计卡片 */
@@ -320,13 +338,6 @@ body::before {
     color: var(--text-secondary);
 }
 
-/* ========== 中间面板 ========== */
-.center-panel {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
 .chart-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -335,6 +346,11 @@ body::before {
 
 .chart-row-three {
     grid-template-columns: repeat(3, 1fr);
+}
+
+.chart-row-last {
+    flex: 1;
+    display: flex;
 }
 
 .chart-container {
@@ -351,6 +367,10 @@ body::before {
 .chart-container:hover {
     border-color: var(--border-glow);
     box-shadow: var(--shadow-lg), var(--glow-blue);
+}
+
+.chart-container-full {
+    flex: 1;
 }
 
 .chart-header {
@@ -375,13 +395,6 @@ body::before {
     flex: 1;
     min-height: 200px;
     position: relative;
-}
-
-/* ========== 右侧面板 ========== */
-.right-panel {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
 }
 
 /* 性别比例卡片 */
@@ -558,6 +571,9 @@ body::before {
     padding: 15px;
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .extra-stats-card:hover {
