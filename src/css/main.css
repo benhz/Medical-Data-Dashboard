@@ -74,9 +74,13 @@ body::before {
 .dashboard-container {
     position: relative;
     width: 100%;
-    min-height: 100vh;
-    padding: 20px;
+    height: 100vh;
+    max-height: 100vh;
+    padding: 10px;
     z-index: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 /* ========== 头部样式 ========== */
@@ -84,15 +88,16 @@ body::before {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px;
+    padding: 12px 30px;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 8px;
-    margin-bottom: 30px;
+    border-radius: 6px;
+    margin-bottom: 10px;
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow-md);
     position: relative;
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 .dashboard-header::before {
@@ -112,20 +117,20 @@ body::before {
 }
 
 .main-title {
-    font-size: 36px;
+    font-size: 24px;
     font-weight: bold;
     color: var(--primary-color);
     text-align: center;
     text-shadow: 0 0 20px rgba(0, 246, 255, 0.8);
-    letter-spacing: 4px;
+    letter-spacing: 3px;
     margin: 0;
 }
 
 .title-decoration {
     color: var(--secondary-color);
-    font-size: 12px;
+    font-size: 10px;
     vertical-align: middle;
-    margin: 0 15px;
+    margin: 0 10px;
 }
 
 .header-left,
@@ -142,7 +147,7 @@ body::before {
 }
 
 .date-time {
-    font-size: 16px;
+    font-size: 14px;
     color: var(--text-secondary);
     font-family: 'Courier New', monospace;
 }
@@ -150,17 +155,17 @@ body::before {
 .weather-info {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    font-size: 16px;
+    gap: 8px;
+    font-size: 14px;
     color: var(--text-secondary);
 }
 
 .weather-icon {
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .temperature {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     color: var(--accent-color);
 }
@@ -168,51 +173,60 @@ body::before {
 /* ========== 主内容区域 ========== */
 .dashboard-content {
     display: grid;
-    grid-template-columns: 280px 1fr 320px;
-    gap: 20px;
+    grid-template-columns: 240px 1fr 280px;
+    gap: 10px;
     position: relative;
     align-items: start;
+    flex: 1;
+    overflow: hidden;
+    max-height: calc(100vh - 80px);
 }
 
 /* ========== 左侧面板 ========== */
 .left-panel {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 8px;
     height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 /* ========== 中间面板 ========== */
 .center-panel {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 /* ========== 右侧面板 ========== */
 .right-panel {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 /* 统计卡片 */
 .stat-cards {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 8px;
 }
 
 .stat-card {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 20px;
+    border-radius: 6px;
+    padding: 10px 12px;
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
     position: relative;
@@ -238,13 +252,13 @@ body::before {
 }
 
 .icon-wrapper {
-    width: 50px;
-    height: 50px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: 18px;
     background: linear-gradient(135deg, rgba(0, 246, 255, 0.2), rgba(14, 169, 181, 0.2));
     border: 2px solid var(--primary-color);
     box-shadow: var(--glow-cyan);
@@ -255,15 +269,15 @@ body::before {
 }
 
 .card-value {
-    font-size: 28px;
+    font-size: 20px;
     font-weight: bold;
     color: var(--primary-color);
-    margin-bottom: 5px;
+    margin-bottom: 2px;
     text-shadow: var(--glow-cyan);
 }
 
 .card-label {
-    font-size: 14px;
+    font-size: 11px;
     color: var(--text-secondary);
 }
 
@@ -271,11 +285,11 @@ body::before {
 .compare-card {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 15px 20px;
+    border-radius: 6px;
+    padding: 8px 12px;
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
 }
@@ -288,13 +302,13 @@ body::before {
 }
 
 .compare-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: 18px;
     background: linear-gradient(135deg, rgba(0, 246, 255, 0.15), rgba(14, 169, 181, 0.15));
     border: 1px solid var(--primary-color);
 }
@@ -304,20 +318,20 @@ body::before {
 }
 
 .compare-label {
-    font-size: 12px;
+    font-size: 10px;
     color: var(--text-muted);
-    margin-bottom: 5px;
+    margin-bottom: 3px;
 }
 
 .compare-values {
     display: flex;
     align-items: baseline;
-    gap: 5px;
+    gap: 4px;
     flex-wrap: wrap;
 }
 
 .today-value {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
     color: var(--accent-color);
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
@@ -329,19 +343,19 @@ body::before {
 }
 
 .yesterday-value {
-    font-size: 12px;
+    font-size: 10px;
     color: var(--text-muted);
 }
 
 .yesterday-number {
-    font-size: 14px;
+    font-size: 11px;
     color: var(--text-secondary);
 }
 
 .chart-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 10px;
 }
 
 .chart-row-three {
@@ -356,8 +370,8 @@ body::before {
 .chart-container {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 15px;
+    border-radius: 6px;
+    padding: 10px;
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
     display: flex;
@@ -374,26 +388,26 @@ body::before {
 }
 
 .chart-header {
-    margin-bottom: 15px;
+    margin-bottom: 8px;
 }
 
 .chart-title {
-    font-size: 16px;
+    font-size: 13px;
     color: var(--text-primary);
     font-weight: 500;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
 }
 
 .title-icon {
     color: var(--primary-color);
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .chart-body {
     flex: 1;
-    min-height: 200px;
+    min-height: 120px;
     position: relative;
 }
 
@@ -401,22 +415,22 @@ body::before {
 .gender-card {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 20px;
+    border-radius: 6px;
+    padding: 8px;
     backdrop-filter: blur(10px);
 }
 
 .gender-content {
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    margin-top: 20px;
+    gap: 8px;
+    margin-top: 6px;
 }
 
 .gender-item {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 8px;
 }
 
 .gender-icon {
@@ -424,7 +438,9 @@ body::before {
 }
 
 .gender-icon svg {
-    filter: drop-shadow(0 0 10px currentColor);
+    filter: drop-shadow(0 0 8px currentColor);
+    width: 32px;
+    height: 32px;
 }
 
 .male-icon svg path {
@@ -440,23 +456,23 @@ body::before {
 }
 
 .gender-percentage {
-    font-size: 32px;
+    font-size: 20px;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
 }
 
 .gender-item:first-child .gender-percentage {
     color: #00d4ff;
-    text-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+    text-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
 }
 
 .gender-item:last-child .gender-percentage {
     color: #ffd700;
-    text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
 }
 
 .gender-label {
-    font-size: 14px;
+    font-size: 10px;
     color: var(--text-secondary);
 }
 
@@ -464,8 +480,8 @@ body::before {
 .analysis-table-card {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 20px;
+    border-radius: 6px;
+    padding: 8px;
     backdrop-filter: blur(10px);
     flex: 1;
     display: flex;
@@ -475,7 +491,7 @@ body::before {
 .table-container {
     flex: 1;
     overflow-y: auto;
-    margin-top: 15px;
+    margin-top: 6px;
 }
 
 /* 自定义滚动条 */
@@ -500,7 +516,7 @@ body::before {
 .data-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 14px;
+    font-size: 10px;
 }
 
 .data-table thead {
@@ -511,7 +527,7 @@ body::before {
 }
 
 .data-table th {
-    padding: 12px 8px;
+    padding: 6px 4px;
     text-align: left;
     color: var(--primary-color);
     font-weight: 500;
@@ -520,7 +536,7 @@ body::before {
 }
 
 .data-table td {
-    padding: 12px 8px;
+    padding: 6px 4px;
     border-bottom: 1px solid rgba(0, 246, 255, 0.1);
     color: var(--text-secondary);
 }
@@ -567,8 +583,8 @@ body::before {
 .extra-stats-card {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 15px;
+    border-radius: 6px;
+    padding: 10px;
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
     flex: 1;
@@ -584,17 +600,17 @@ body::before {
 .extra-stats-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-top: 15px;
+    gap: 6px;
+    margin-top: 6px;
 }
 
 .stat-item {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 12px;
+    gap: 6px;
+    padding: 6px;
     background: rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
+    border-radius: 3px;
     border: 1px solid rgba(0, 246, 255, 0.1);
     transition: all 0.3s ease;
 }
@@ -606,14 +622,14 @@ body::before {
 }
 
 .stat-icon {
-    font-size: 28px;
-    width: 45px;
-    height: 45px;
+    font-size: 16px;
+    width: 26px;
+    height: 26px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, rgba(0, 246, 255, 0.15), rgba(14, 169, 181, 0.15));
-    border-radius: 8px;
+    border-radius: 4px;
     border: 1px solid var(--primary-color);
 }
 
@@ -622,15 +638,15 @@ body::before {
 }
 
 .stat-number {
-    font-size: 24px;
+    font-size: 14px;
     font-weight: bold;
     color: var(--primary-color);
-    margin-bottom: 3px;
+    margin-bottom: 1px;
     text-shadow: var(--glow-cyan);
 }
 
 .stat-text {
-    font-size: 12px;
+    font-size: 9px;
     color: var(--text-secondary);
 }
 
@@ -638,8 +654,8 @@ body::before {
 .resource-stats-card {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 15px;
+    border-radius: 6px;
+    padding: 8px;
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
 }
@@ -652,44 +668,44 @@ body::before {
 .resource-stats-content {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-top: 15px;
+    gap: 6px;
+    margin-top: 6px;
 }
 
 .resource-item {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 3px;
 }
 
 .resource-label {
-    font-size: 12px;
+    font-size: 10px;
     color: var(--text-secondary);
 }
 
 .resource-value {
     display: flex;
     align-items: baseline;
-    gap: 4px;
+    gap: 3px;
 }
 
 .resource-number {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     color: var(--primary-color);
     text-shadow: var(--glow-cyan);
 }
 
 .resource-unit {
-    font-size: 12px;
+    font-size: 10px;
     color: var(--text-muted);
 }
 
 .resource-bar {
     width: 100%;
-    height: 6px;
+    height: 4px;
     background: rgba(0, 0, 0, 0.3);
-    border-radius: 3px;
+    border-radius: 2px;
     overflow: hidden;
     position: relative;
 }
@@ -697,18 +713,18 @@ body::before {
 .resource-bar-fill {
     height: 100%;
     background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-    border-radius: 3px;
+    border-radius: 2px;
     transition: width 1s ease;
     box-shadow: 0 0 8px rgba(0, 246, 255, 0.6);
 }
 
 /* ========== 患者来源分布卡片 ========== */
 .patient-source-card {
-    min-height: 280px;
+    min-height: 150px;
 }
 
 .patient-source-card .chart-body {
-    min-height: 220px;
+    min-height: 110px;
 }
 
 /* ========== 动画效果 ========== */
