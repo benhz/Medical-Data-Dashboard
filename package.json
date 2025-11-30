@@ -1,0 +1,32 @@
+{
+  "name": "medical-data-dashboard",
+  "version": "1.0.0",
+  "description": "专业的医疗运营监控数据大屏可视化系统",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve",
+    "dev": "npx serve -p 8000",
+    "preview": "npx serve -p 3000"
+  },
+  "keywords": [
+    "医疗",
+    "数据可视化",
+    "大屏",
+    "dashboard",
+    "echarts",
+    "数据分析"
+  ],
+  "author": "Claude",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/Medical-Data-Dashboard.git"
+  },
+  "devDependencies": {},
+  "dependencies": {},
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "not dead"
+  ]
+}

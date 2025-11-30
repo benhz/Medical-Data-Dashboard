@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医疗运营监控数据大屏</title>
+    <link rel="stylesheet" href="src/css/main.css">
+    <link rel="stylesheet" href="src/css/responsive.css">
+</head>
+<body>
+    <!-- 主容器 -->
+    <div class="dashboard-container">
+        <!-- 头部标题栏 -->
+        <header class="dashboard-header">
+            <div class="header-left">
+                <span class="date-time" id="currentDateTime">2022-09-07 10:42:12</span>
+            </div>
+            <h1 class="main-title">
+                <span class="title-decoration">●●●●●</span>
+                医疗运营监控数据大屏
+                <span class="title-decoration">●●●●●</span>
+            </h1>
+            <div class="header-right">
+                <div class="weather-info">
+                    <span class="weather-icon">🌤️</span>
+                    <span class="temperature">27°C</span>
+                    <span class="date">09月07日</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- 主内容区域 -->
+        <div class="dashboard-content">
+            <!-- 左侧区域 -->
+            <div class="left-panel">
+                <!-- 统计卡片组 -->
+                <div class="stat-cards">
+                    <div class="stat-card card-blue">
+                        <div class="card-icon">
+                            <div class="icon-wrapper icon-patients">👥</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-value" id="todayPatients">32人</div>
+                            <div class="card-label">今日就诊总数</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card card-cyan">
+                        <div class="card-icon">
+                            <div class="icon-wrapper icon-beds">🛏️</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-value" id="todayBeds">268张</div>
+                            <div class="card-label">今日使用床位</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 对比数据卡片 -->
+                <div class="compare-card">
+                    <div class="compare-icon">💊</div>
+                    <div class="compare-content">
+                        <div class="compare-label">今日门诊</div>
+                        <div class="compare-values">
+                            <span class="today-value" id="todayOutpatient">1223</span>
+                            <span class="divider">/</span>
+                            <span class="yesterday-value">昨日门诊</span>
+                            <span class="yesterday-number" id="yesterdayOutpatient">897</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="compare-card">
+                    <div class="compare-icon">🏥</div>
+                    <div class="compare-content">
+                        <div class="compare-label">今日住院</div>
+                        <div class="compare-values">
+                            <span class="today-value" id="todayInpatient">1223</span>
+                            <span class="divider">/</span>
+                            <span class="yesterday-value">昨日住院</span>
+                            <span class="yesterday-number" id="yesterdayInpatient">897</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="compare-card">
+                    <div class="compare-icon">🚪</div>
+                    <div class="compare-content">
+                        <div class="compare-label">今日出院</div>
+                        <div class="compare-values">
+                            <span class="today-value" id="todayDischarge">1223</span>
+                            <span class="divider">/</span>
+                            <span class="yesterday-value">昨日出院</span>
+                            <span class="yesterday-number" id="yesterdayDischarge">897</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="compare-card">
+                    <div class="compare-icon">👨‍⚕️</div>
+                    <div class="compare-content">
+                        <div class="compare-label">今日出诊</div>
+                        <div class="compare-values">
+                            <span class="today-value" id="todayDoctorVisit">1223</span>
+                            <span class="divider">/</span>
+                            <span class="yesterday-value">昨日出诊</span>
+                            <span class="yesterday-number" id="yesterdayDoctorVisit">897</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="compare-card">
+                    <div class="compare-icon">🔬</div>
+                    <div class="compare-content">
+                        <div class="compare-label">今日手术</div>
+                        <div class="compare-values">
+                            <span class="today-value" id="todaySurgery">1223</span>
+                            <span class="divider">/</span>
+                            <span class="yesterday-value">昨日手术</span>
+                            <span class="yesterday-number" id="yesterdaySurgery">897</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 中间区域 -->
+            <div class="center-panel">
+                <!-- 第一行：两个图表 -->
+                <div class="chart-row">
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <div class="chart-title">
+                                <span class="title-icon">▸</span>
+                                主诊室注册人数每月与人次对比
+                            </div>
+                        </div>
+                        <div class="chart-body" id="registrationChart"></div>
+                    </div>
+
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <div class="chart-title">
+                                <span class="title-icon">▸</span>
+                                每周人流量分布变化
+                            </div>
+                        </div>
+                        <div class="chart-body" id="weeklyFlowChart"></div>
+                    </div>
+                </div>
+
+                <!-- 第二行：三个图表 -->
+                <div class="chart-row chart-row-three">
+                    <div class="chart-container chart-small">
+                        <div class="chart-header">
+                            <div class="chart-title">
+                                <span class="title-icon">▸</span>
+                                医院收入分类
+                            </div>
+                        </div>
+                        <div class="chart-body" id="incomeDistributionChart"></div>
+                    </div>
+
+                    <div class="chart-container chart-small">
+                        <div class="chart-header">
+                            <div class="chart-title">
+                                <span class="title-icon">▸</span>
+                                一周就诊人数统计
+                            </div>
+                        </div>
+                        <div class="chart-body" id="weeklyPatientsChart"></div>
+                    </div>
+
+                    <div class="chart-container chart-small">
+                        <div class="chart-header">
+                            <div class="chart-title">
+                                <span class="title-icon">▸</span>
+                                疾病分类排行
+                            </div>
+                        </div>
+                        <div class="chart-body" id="diseaseRankingChart"></div>
+                    </div>
+                </div>
+
+                <!-- 第三行：床位使用情况 -->
+                <div class="chart-row">
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <div class="chart-title">
+                                <span class="title-icon">▸</span>
+                                各科床位使用情况
+                            </div>
+                        </div>
+                        <div class="chart-body" id="bedUsageChart"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧区域 -->
+            <div class="right-panel">
+                <!-- 性别比例 -->
+                <div class="gender-card">
+                    <div class="chart-header">
+                        <div class="chart-title">
+                            <span class="title-icon">▸</span>
+                            就诊人群性别比
+                        </div>
+                    </div>
+                    <div class="gender-content">
+                        <div class="gender-item">
+                            <div class="gender-icon male-icon">
+                                <svg viewBox="0 0 1024 1024" width="60" height="60">
+                                    <path d="M621.674667 367.658667A254.122667 254.122667 0 0 0 383.957333 256c-141.226667 0-256 114.773333-256 256s114.773333 256 256 256a254.122667 254.122667 0 0 0 237.696-167.274667l110.293334 110.293334a42.666667 42.666667 0 1 0 60.330666-60.330667l-110.293333-110.293333A254.122667 254.122667 0 0 0 639.957333 512c0-56.746667-18.474667-109.226667-49.706666-151.68l142.08-142.08h-81.92a42.666667 42.666667 0 1 1 0-85.333333h170.666666a42.666667 42.666667 0 0 1 42.666667 42.666666v170.666667a42.666667 42.666667 0 1 1-85.333333 0v-81.92l-156.736 156.736z m-237.717334 314.325333c-94.122667 0-170.666667-76.544-170.666666-170.666667s76.544-170.666667 170.666666-170.666666 170.666667 76.544 170.666667 170.666666-76.544 170.666667-170.666667 170.666667z" fill="#00d4ff"></path>
+                                </svg>
+                            </div>
+                            <div class="gender-info">
+                                <div class="gender-percentage" id="malePercentage">45%</div>
+                                <div class="gender-label">男性占比</div>
+                            </div>
+                        </div>
+                        <div class="gender-item">
+                            <div class="gender-icon female-icon">
+                                <svg viewBox="0 0 1024 1024" width="60" height="60">
+                                    <path d="M512 938.666667a42.666667 42.666667 0 0 1-42.666667-42.666667v-128h-85.333333a42.666667 42.666667 0 1 1 0-85.333333h85.333333v-62.378667A297.706667 297.706667 0 0 1 213.333333 384c0-164.949333 134.4-298.666667 298.666667-298.666667s298.666667 133.717333 298.666667 298.666667a297.706667 297.706667 0 0 1-256 294.272V682.666667h85.333333a42.666667 42.666667 0 1 1 0 85.333333h-85.333333v128a42.666667 42.666667 0 0 1-42.666667 42.666667z m0-768c-117.824 0-213.333333 95.146667-213.333333 213.333333s95.509333 213.333333 213.333333 213.333333 213.333333-95.146667 213.333333-213.333333-95.509333-213.333333-213.333333-213.333333z" fill="#ffd700"></path>
+                                </svg>
+                            </div>
+                            <div class="gender-info">
+                                <div class="gender-percentage" id="femalePercentage">55%</div>
+                                <div class="gender-label">女性占比</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 智能分析数据表 -->
+                <div class="analysis-table-card">
+                    <div class="chart-header">
+                        <div class="chart-title">
+                            <span class="title-icon">▸</span>
+                            智能病症数据
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table" id="analysisTable">
+                            <thead>
+                                <tr>
+                                    <th>排名</th>
+                                    <th>病症</th>
+                                    <th>本周</th>
+                                    <th>上周</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                                <!-- 数据将通过 JavaScript 动态填充 -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ECharts 库 -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+
+    <!-- 自定义脚本 -->
+    <script src="src/js/utils.js"></script>
+    <script src="data/mockData.js"></script>
+    <script src="src/js/charts.js"></script>
+    <script src="src/js/main.js"></script>
+</body>
+</html>
