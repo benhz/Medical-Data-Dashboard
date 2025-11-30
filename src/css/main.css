@@ -550,6 +550,83 @@ body::before {
     text-shadow: 0 0 10px rgba(205, 127, 50, 0.6);
 }
 
+/* ========== 额外统计卡片 ========== */
+.extra-stats-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.extra-stats-card:hover {
+    border-color: var(--border-glow);
+    box-shadow: var(--shadow-md), var(--glow-blue);
+}
+
+.extra-stats-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    border: 1px solid rgba(0, 246, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    background: rgba(0, 246, 255, 0.1);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.stat-icon {
+    font-size: 28px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(0, 246, 255, 0.15), rgba(14, 169, 181, 0.15));
+    border-radius: 8px;
+    border: 1px solid var(--primary-color);
+}
+
+.stat-info {
+    flex: 1;
+}
+
+.stat-number {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 3px;
+    text-shadow: var(--glow-cyan);
+}
+
+.stat-text {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+/* ========== 患者来源分布卡片 ========== */
+.patient-source-card {
+    min-height: 280px;
+}
+
+.patient-source-card .chart-body {
+    min-height: 220px;
+}
+
 /* ========== 动画效果 ========== */
 @keyframes fadeIn {
     from {
@@ -566,7 +643,8 @@ body::before {
 .compare-card,
 .chart-container,
 .gender-card,
-.analysis-table-card {
+.analysis-table-card,
+.extra-stats-card {
     animation: fadeIn 0.6s ease-out;
 }
 
@@ -578,6 +656,7 @@ body::before {
 .left-panel > *:nth-child(5) { animation-delay: 0.3s; }
 .left-panel > *:nth-child(6) { animation-delay: 0.35s; }
 .left-panel > *:nth-child(7) { animation-delay: 0.4s; }
+.left-panel > *:nth-child(8) { animation-delay: 0.45s; }
 
 /* ========== 响应式提示 ========== */
 @media (max-width: 1600px) {

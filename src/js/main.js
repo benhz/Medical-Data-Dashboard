@@ -27,10 +27,13 @@ class MedicalDashboard {
         // 4. 更新性别比例
         this.updateGenderData();
 
-        // 5. 更新分析表格
+        // 5. 更新额外统计数据
+        this.updateExtraStats();
+
+        // 6. 更新分析表格
         this.updateAnalysisTable();
 
-        // 6. 启动自动刷新
+        // 7. 启动自动刷新
         this.startAutoRefresh();
 
         // 7. 监听窗口变化
@@ -89,6 +92,18 @@ class MedicalDashboard {
 
         this.updateElement('malePercentage', `${gender.male}%`);
         this.updateElement('femalePercentage', `${gender.female}%`);
+    }
+
+    /**
+     * 更新额外统计数据
+     */
+    updateExtraStats() {
+        const { extraStats } = this.data;
+
+        this.updateElement('alertCount', extraStats.alertCount);
+        this.updateElement('emergencyCount', extraStats.emergencyCount);
+        this.updateElement('appointmentCount', extraStats.appointmentCount);
+        this.updateElement('vaccineCount', extraStats.vaccineCount);
     }
 
     /**
@@ -161,6 +176,7 @@ class MedicalDashboard {
         // 更新界面
         this.updateOverviewData();
         this.updateGenderData();
+        this.updateExtraStats();
         this.updateAnalysisTable();
 
         // 刷新图表

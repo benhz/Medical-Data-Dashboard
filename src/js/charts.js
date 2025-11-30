@@ -600,6 +600,83 @@ const Charts = {
     },
 
     /**
+     * 初始化患者来源分布图表
+     */
+    initPatientSourceChart(data) {
+        const container = document.getElementById('patientSourceChart');
+        if (!container) return;
+
+        const chart = echarts.init(container);
+        this.instances.patientSourceChart = chart;
+
+        const option = {
+            tooltip: {
+                trigger: 'item',
+                backgroundColor: 'rgba(15, 45, 75, 0.9)',
+                borderColor: '#00f6ff',
+                borderWidth: 1,
+                textStyle: {
+                    color: '#fff'
+                },
+                formatter: '{b}: {c}%'
+            },
+            series: [
+                {
+                    type: 'pie',
+                    radius: ['30%', '65%'],
+                    center: ['50%', '50%'],
+                    avoidLabelOverlap: false,
+                    itemStyle: {
+                        borderRadius: 8,
+                        borderColor: 'rgba(0, 0, 0, 0.5)',
+                        borderWidth: 2
+                    },
+                    label: {
+                        show: true,
+                        position: 'outside',
+                        formatter: '{b}\n{c}%',
+                        color: '#a0d8e8',
+                        fontSize: 12
+                    },
+                    labelLine: {
+                        show: true,
+                        length: 15,
+                        length2: 8,
+                        lineStyle: {
+                            color: 'rgba(0, 246, 255, 0.3)'
+                        }
+                    },
+                    emphasis: {
+                        label: {
+                            show: true,
+                            fontSize: 14,
+                            fontWeight: 'bold'
+                        },
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 246, 255, 0.5)'
+                        }
+                    },
+                    data: data.map((item, index) => {
+                        const colors = ['#00f6ff', '#ffd700', '#00ff88', '#ff6b9d'];
+                        return {
+                            value: item.value,
+                            name: item.name,
+                            itemStyle: {
+                                color: colors[index % colors.length]
+                            }
+                        };
+                    })
+                }
+            ]
+        };
+
+        chart.setOption(option);
+        Utils.handleChartResize(chart);
+    },
+
+    /**
      * 初始化所有图表
      */
     initAllCharts(data) {
@@ -609,6 +686,7 @@ const Charts = {
         this.initWeeklyPatientsChart(data.weeklyPatients);
         this.initDiseaseRankingChart(data.diseaseRanking);
         this.initBedUsageChart(data.bedUsage);
+        this.initPatientSourceChart(data.patientSource);
     },
 
     /**

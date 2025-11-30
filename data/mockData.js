@@ -94,6 +94,22 @@ const mockData = {
         { rank: 2, disease: '肺病医院', thisWeek: 150, lastWeek: 125 },
         { rank: 3, disease: '高血压', thisWeek: 98, lastWeek: 124 },
         { rank: 4, disease: '口腔医院', thisWeek: 95, lastWeek: 112 }
+    ],
+
+    // 额外统计数据
+    extraStats: {
+        alertCount: 3,          // 待处理告警
+        emergencyCount: 12,     // 急诊患者
+        appointmentCount: 45,   // 预约挂号
+        vaccineCount: 28        // 疫苗接种
+    },
+
+    // 患者来源分布
+    patientSource: [
+        { name: '本市', value: 45 },
+        { name: '外市', value: 28 },
+        { name: '外省', value: 18 },
+        { name: '其他', value: 9 }
     ]
 };
 
