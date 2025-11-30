@@ -30,7 +30,10 @@ class MedicalDashboard {
         // 5. 更新额外统计数据
         this.updateExtraStats();
 
-        // 6. 更新分析表格
+        // 6. 更新医疗资源统计
+        this.updateResourceStats();
+
+        // 7. 更新分析表格
         this.updateAnalysisTable();
 
         // 7. 启动自动刷新
@@ -107,6 +110,18 @@ class MedicalDashboard {
     }
 
     /**
+     * 更新医疗资源统计
+     */
+    updateResourceStats() {
+        const { resourceStats } = this.data;
+
+        this.updateElement('doctorOnDuty', resourceStats.doctorOnDuty);
+        this.updateElement('nurseOnDuty', resourceStats.nurseOnDuty);
+        this.updateElement('equipmentUsage', resourceStats.equipmentUsage);
+        this.updateElement('bedTurnover', resourceStats.bedTurnover);
+    }
+
+    /**
      * 更新分析表格
      */
     updateAnalysisTable() {
@@ -177,6 +192,7 @@ class MedicalDashboard {
         this.updateOverviewData();
         this.updateGenderData();
         this.updateExtraStats();
+        this.updateResourceStats();
         this.updateAnalysisTable();
 
         // 刷新图表

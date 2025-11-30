@@ -91,9 +91,9 @@ const mockData = {
         { rank: 8, disease: '骨折', thisWeek: 75, lastWeek: 68 },
         { rank: 9, disease: '失眠', thisWeek: 65, lastWeek: 85 },
         { rank: 10, disease: '肺炎', thisWeek: 60, lastWeek: 93 },
-        { rank: 2, disease: '肺病医院', thisWeek: 150, lastWeek: 125 },
-        { rank: 3, disease: '高血压', thisWeek: 98, lastWeek: 124 },
-        { rank: 4, disease: '口腔医院', thisWeek: 95, lastWeek: 112 }
+        { rank: 11, disease: '肺病医院', thisWeek: 150, lastWeek: 125 },
+        { rank: 12, disease: '高血压', thisWeek: 98, lastWeek: 124 },
+        { rank: 13, disease: '口腔医院', thisWeek: 95, lastWeek: 112 }
     ],
 
     // 额外统计数据
@@ -102,6 +102,14 @@ const mockData = {
         emergencyCount: 12,     // 急诊患者
         appointmentCount: 45,   // 预约挂号
         vaccineCount: 28        // 疫苗接种
+    },
+
+    // 医疗资源统计
+    resourceStats: {
+        doctorOnDuty: 89,       // 医生在岗
+        nurseOnDuty: 156,       // 护士在岗
+        equipmentUsage: 82,     // 设备使用率
+        bedTurnover: 92         // 病床周转率
     },
 
     // 患者来源分布
