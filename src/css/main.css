@@ -88,11 +88,11 @@ body::before {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 30px;
+    padding: 15px 35px;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: 6px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow-md);
     position: relative;
@@ -117,20 +117,20 @@ body::before {
 }
 
 .main-title {
-    font-size: 24px;
+    font-size: 32px;
     font-weight: bold;
     color: var(--primary-color);
     text-align: center;
     text-shadow: 0 0 20px rgba(0, 246, 255, 0.8);
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     margin: 0;
 }
 
 .title-decoration {
     color: var(--secondary-color);
-    font-size: 10px;
+    font-size: 12px;
     vertical-align: middle;
-    margin: 0 10px;
+    margin: 0 12px;
 }
 
 .header-left,
@@ -147,7 +147,7 @@ body::before {
 }
 
 .date-time {
-    font-size: 14px;
+    font-size: 16px;
     color: var(--text-secondary);
     font-family: 'Courier New', monospace;
 }
@@ -155,17 +155,17 @@ body::before {
 .weather-info {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-size: 14px;
+    gap: 10px;
+    font-size: 16px;
     color: var(--text-secondary);
 }
 
 .weather-icon {
-    font-size: 20px;
+    font-size: 24px;
 }
 
 .temperature {
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
     color: var(--accent-color);
 }
@@ -173,20 +173,20 @@ body::before {
 /* ========== 主内容区域 ========== */
 .dashboard-content {
     display: grid;
-    grid-template-columns: 240px 1fr 280px;
-    gap: 10px;
+    grid-template-columns: 260px 1fr 300px;
+    gap: 12px;
     position: relative;
     align-items: start;
     flex: 1;
     overflow: hidden;
-    max-height: calc(100vh - 80px);
+    max-height: calc(100vh - 100px);
 }
 
 /* ========== 左侧面板 ========== */
 .left-panel {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
@@ -196,7 +196,7 @@ body::before {
 .center-panel {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
@@ -206,7 +206,7 @@ body::before {
 .right-panel {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
@@ -216,17 +216,17 @@ body::before {
 .stat-cards {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
 }
 
 .stat-card {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: 6px;
-    padding: 10px 12px;
+    padding: 12px 14px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
     position: relative;
@@ -252,13 +252,13 @@ body::before {
 }
 
 .icon-wrapper {
-    width: 36px;
-    height: 36px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
+    font-size: 20px;
     background: linear-gradient(135deg, rgba(0, 246, 255, 0.2), rgba(14, 169, 181, 0.2));
     border: 2px solid var(--primary-color);
     box-shadow: var(--glow-cyan);
@@ -269,15 +269,15 @@ body::before {
 }
 
 .card-value {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
     color: var(--primary-color);
-    margin-bottom: 2px;
+    margin-bottom: 4px;
     text-shadow: var(--glow-cyan);
 }
 
 .card-label {
-    font-size: 11px;
+    font-size: 12px;
     color: var(--text-secondary);
 }
 
@@ -331,7 +331,7 @@ body::before {
 }
 
 .today-value {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     color: var(--accent-color);
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
@@ -343,19 +343,19 @@ body::before {
 }
 
 .yesterday-value {
-    font-size: 10px;
+    font-size: 11px;
     color: var(--text-muted);
 }
 
 .yesterday-number {
-    font-size: 11px;
+    font-size: 12px;
     color: var(--text-secondary);
 }
 
 .chart-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 8px;
 }
 
 .chart-row-three {
@@ -392,7 +392,7 @@ body::before {
 }
 
 .chart-title {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--text-primary);
     font-weight: 500;
     display: flex;
@@ -402,12 +402,13 @@ body::before {
 
 .title-icon {
     color: var(--primary-color);
-    font-size: 12px;
+    font-size: 13px;
 }
 
 .chart-body {
     flex: 1;
-    min-height: 120px;
+    min-height: 100px;
+    max-height: 180px;
     position: relative;
 }
 
@@ -423,14 +424,14 @@ body::before {
 .gender-content {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin-top: 6px;
+    gap: 12px;
+    margin-top: 10px;
 }
 
 .gender-item {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 .gender-icon {
@@ -439,8 +440,8 @@ body::before {
 
 .gender-icon svg {
     filter: drop-shadow(0 0 8px currentColor);
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
 }
 
 .male-icon svg path {
@@ -456,9 +457,9 @@ body::before {
 }
 
 .gender-percentage {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
-    margin-bottom: 2px;
+    margin-bottom: 3px;
 }
 
 .gender-item:first-child .gender-percentage {
@@ -472,7 +473,7 @@ body::before {
 }
 
 .gender-label {
-    font-size: 10px;
+    font-size: 12px;
     color: var(--text-secondary);
 }
 
@@ -516,7 +517,7 @@ body::before {
 .data-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 10px;
+    font-size: 11px;
 }
 
 .data-table thead {
@@ -527,7 +528,7 @@ body::before {
 }
 
 .data-table th {
-    padding: 6px 4px;
+    padding: 8px 6px;
     text-align: left;
     color: var(--primary-color);
     font-weight: 500;
@@ -536,7 +537,7 @@ body::before {
 }
 
 .data-table td {
-    padding: 6px 4px;
+    padding: 8px 6px;
     border-bottom: 1px solid rgba(0, 246, 255, 0.1);
     color: var(--text-secondary);
 }
@@ -622,14 +623,14 @@ body::before {
 }
 
 .stat-icon {
-    font-size: 16px;
-    width: 26px;
-    height: 26px;
+    font-size: 18px;
+    width: 30px;
+    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, rgba(0, 246, 255, 0.15), rgba(14, 169, 181, 0.15));
-    border-radius: 4px;
+    border-radius: 5px;
     border: 1px solid var(--primary-color);
 }
 
@@ -638,15 +639,15 @@ body::before {
 }
 
 .stat-number {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     color: var(--primary-color);
-    margin-bottom: 1px;
+    margin-bottom: 2px;
     text-shadow: var(--glow-cyan);
 }
 
 .stat-text {
-    font-size: 9px;
+    font-size: 11px;
     color: var(--text-secondary);
 }
 
@@ -679,25 +680,25 @@ body::before {
 }
 
 .resource-label {
-    font-size: 10px;
+    font-size: 12px;
     color: var(--text-secondary);
 }
 
 .resource-value {
     display: flex;
     align-items: baseline;
-    gap: 3px;
+    gap: 4px;
 }
 
 .resource-number {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     color: var(--primary-color);
     text-shadow: var(--glow-cyan);
 }
 
 .resource-unit {
-    font-size: 10px;
+    font-size: 12px;
     color: var(--text-muted);
 }
 
@@ -720,11 +721,11 @@ body::before {
 
 /* ========== 患者来源分布卡片 ========== */
 .patient-source-card {
-    min-height: 150px;
+    min-height: 200px;
 }
 
 .patient-source-card .chart-body {
-    min-height: 110px;
+    min-height: 160px;
 }
 
 /* ========== 动画效果 ========== */
